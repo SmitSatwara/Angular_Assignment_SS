@@ -1,0 +1,32 @@
+<h1 mat-dialog-title>Transaction Details</h1>
+
+<div mat-dialog-content>
+  
+  
+
+  <form [formGroup]="transactionForm" >
+    <!-- ID -->
+    <mat-form-field appearance="outline">
+      <mat-label>ID</mat-label>
+      <input matInput formControlName="id" [readonly]="true"  />
+    </mat-form-field>
+    <!--Date  -->
+    <mat-form-field appearance="outline">
+      <mat-label>Date</mat-label>
+      <input matInput   [readonly]="true"  formControlName="date"/>
+      
+    </mat-form-field>
+  <!-- Comments -->
+    <mat-form-field appearance="outline">
+      <mat-label>Add/Update comment</mat-label>
+      <input matInput formControlName="comment" required (keypress)="keyPressAlphanumeric($event)" placeholder="Add a Comment"  />
+    </mat-form-field> 
+  </form>
+  
+</div>
+
+<div mat-dialog-actions [align]="'end'">
+  <button mat-raised-button color="warn" mat-dialog-close="">Close</button>
+    <button mat-raised-button color="primary" (click)="updateTransaction()">Update</button>
+    
+</div>

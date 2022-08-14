@@ -1,0 +1,29 @@
+<h1 mat-dialog-title>Add Transaction</h1>
+
+<div mat-dialog-content>
+  <!-- <mat-form-field appearance="outline">
+    <mat-label>ID</mat-label>
+    <input matInput placeholder="ID" value="" />
+  </mat-form-field> -->
+  <form [formGroup]="transactionForm" >
+    <mat-form-field appearance="outline">
+      <mat-label>Choose a date</mat-label>
+      <input matInput [matDatepicker]="picker"  formControlName="date"/>
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline">
+      <mat-label>Add a comment</mat-label>
+      <input matInput formControlName="comment" placeholder="Add a Comment" value="" />
+    </mat-form-field> 
+  </form>
+  
+</div>
+
+<div mat-dialog-actions [align]="'end'">
+  <button mat-raised-button color="warn" mat-dialog-close="">Close</button>
+    <button mat-raised-button color="primary" (click)="addTransaction()">Add</button>
+    
+</div>
